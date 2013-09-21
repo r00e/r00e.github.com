@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://r00e.github.io/sitemap.xml 
