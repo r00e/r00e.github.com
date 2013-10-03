@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>r00e</title>
+  <title>Docbook, 让文档版本化 - r00e</title>
   <meta name="author" content="r00e">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://r00e.github.io">
+  <link rel="canonical" href="http://r00e.github.io/blog/2013/09/21/rang-wen-dang-ban-ben-hua">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="r00e" type="application/atom+xml">
@@ -63,15 +63,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/09/21/rang-wen-dang-ban-ben-hua/">Docbook, 让文档版本化</a></h1>
+      <h1 class="entry-title">Docbook, 让文档版本化</h1>
     
     
       <p class="meta">
@@ -94,7 +91,7 @@
   </header>
 
 
-  <div class="entry-content"><p>由于项目中客户的一些原因，我们不能直接接触产品环境的服务器。导致我们每次部署产品代码前，需要给客户的IT团队准备一份部署文档，然后他们遵循这份文档来部署产品。</p>
+<div class="entry-content"><p>由于项目中客户的一些原因，我们不能直接接触产品环境的服务器。导致我们每次部署产品代码前，需要给客户的IT团队准备一份部署文档，然后他们遵循这份文档来部署产品。</p>
 
 <p>最开始的时候，我们是用word来写这份文档的。方便是方便，但是当时间长了以后，文件数越来越多，每次写这个文档也不是固定的人，有时候需要复查一下很久前写的东西，就不那么方便了。所以很期望能把这个部署文档也纳入版本控制当中，这样就可以像代码一样，不管是谁写完文档，check in到repository里，以后想要查找、对比都方便很多。</p>
 
@@ -201,18 +198,49 @@
 
 <p>最后，我们可以在本地自己搭建一个repository（git或者hg，随你自己喜欢），把编辑好的XML文件check in上去了。以后每次写完，可以运行上面两条命令来得到交付的pdf文件；编辑完的XML文件则完全纳入版本管理当中了，可以集中、方便地管理，查询以前的提交，两次之间的diff，都是方便得很～～</p>
 </div>
+
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">r00e</span></span>
+
+      
+
+
+
+
+
+
+
+
   
 
 
-    </article>
+<time datetime="2013-09-21T20:36:00+08:00" pubdate data-updated="true">Sep 21<span>st</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
   
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+  
+  
 </div>
+
+    
+    <p class="meta">
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -232,6 +260,7 @@
 
   
 </aside>
+
 
     </div>
   </div>

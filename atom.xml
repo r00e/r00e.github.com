@@ -4,7 +4,7 @@
   <title><![CDATA[r00e]]></title>
   <link href="http://r00e.github.io/atom.xml" rel="self"/>
   <link href="http://r00e.github.io/"/>
-  <updated>2013-09-21T20:28:49+08:00</updated>
+  <updated>2013-10-03T14:12:08+08:00</updated>
   <id>http://r00e.github.io/</id>
   <author>
     <name><![CDATA[r00e]]></name>
@@ -12,5 +12,119 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Docbook, 让文档版本化]]></title>
+    <link href="http://r00e.github.io/blog/2013/09/21/rang-wen-dang-ban-ben-hua/"/>
+    <updated>2013-09-21T20:36:00+08:00</updated>
+    <id>http://r00e.github.io/blog/2013/09/21/rang-wen-dang-ban-ben-hua</id>
+    <content type="html"><![CDATA[<p>由于项目中客户的一些原因，我们不能直接接触产品环境的服务器。导致我们每次部署产品代码前，需要给客户的IT团队准备一份部署文档，然后他们遵循这份文档来部署产品。</p>
+
+<p>最开始的时候，我们是用word来写这份文档的。方便是方便，但是当时间长了以后，文件数越来越多，每次写这个文档也不是固定的人，有时候需要复查一下很久前写的东西，就不那么方便了。所以很期望能把这个部署文档也纳入版本控制当中，这样就可以像代码一样，不管是谁写完文档，check in到repository里，以后想要查找、对比都方便很多。</p>
+
+<p>但是word文档本身并不能直接纳入到版本控制中，需要check in的是纯文本。我们还想提供给客户的文档有一定的格式，所以直接发送纯文本的方式也被否定了。</p>
+
+<p>这个时候就是我们的主角Docbook登场的时候了！Docbook可以把符合自己格式的XML文件转变成pdf，我们可以把pdf作为发送给客户的最终文档。下面就让我们看看，如何使用Docbook来实现文档的版本化吧！</p>
+
+<p>我们这里以<strong>Windows</strong>环境为例。</p>
+
+<p>依据<a href="http://www.crifan.com/files/doc/docbook/docbook_dev_note/release/htmls/pure_win_docbook_dev_env.html">链接1</a>的步骤，可以很方便的搭建起来Docbook环境。搭建的过程很简单，把那个链接当中提到的东西都下载安装后，就可以了。
+之后，我们的重点就可以放在编辑XML文件了，Docbook本身有很多规则，可以参考<a href="http://www.docbook.org/">链接2</a>。由于我们只是准备一份文档，不许要像论文、书籍那么复杂，所以可以只用几个简单有用的元素，就满足我们的需求了。</p>
+
+<p>下面是一个简单的例子，创建一个叫做 docbook5-demo.xml 的文件，编辑如下：</p>
+
+<figure class='code'><figcaption><span>docbook5-demo.xml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="cp">&lt;?xml version=&#39;1.0&#39; encoding=&quot;utf-8&quot;?&gt;</span>
+</span><span class='line'><span class="nt">&lt;article&gt;</span>
+</span><span class='line'><span class="nt">&lt;artheader&gt;</span>
+</span><span class='line'><span class="nt">&lt;title&gt;</span>Instruction Example<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'><span class="nt">&lt;author&gt;&lt;personname&gt;&lt;firstname&gt;</span>Your Name<span class="nt">&lt;/firstname&gt;&lt;/personname&gt;&lt;/author&gt;</span>
+</span><span class='line'><span class="nt">&lt;/artheader&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;sect1&gt;</span>
+</span><span class='line'><span class="nt">&lt;title&gt;</span>Topological Diagram<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'><span class="nt">&lt;figure&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;graphic</span> <span class="na">fileref=</span><span class="s">&quot;picture.png&quot;</span><span class="nt">&gt;&lt;/graphic&gt;</span>
+</span><span class='line'><span class="nt">&lt;/figure&gt;</span>
+</span><span class='line'><span class="nt">&lt;/sect1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;sect1&gt;&lt;title&gt;</span>Pre<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'><span class="nt">&lt;sect2&gt;&lt;title&gt;</span>Backup following things:<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;para&gt;</span>item 1<span class="nt">&lt;/para&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;para&gt;</span>item 2<span class="nt">&lt;/para&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;para&gt;</span>item 3<span class="nt">&lt;/para&gt;</span>
+</span><span class='line'><span class="nt">&lt;/sect2&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;sect2&gt;&lt;title&gt;</span>Update things<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;sect3&gt;&lt;title&gt;</span>Update xxx file in yyy folder<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;para&gt;</span>Remove items below:
+</span><span class='line'>            <span class="nt">&lt;itemizedlist&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;listitem&gt;</span>removed item1<span class="nt">&lt;/listitem&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;listitem&gt;</span>removed item2<span class="nt">&lt;/listitem&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;/itemizedlist&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;/para&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/sect3&gt;</span>
+</span><span class='line'><span class="nt">&lt;/sect2&gt;</span>
+</span><span class='line'><span class="nt">&lt;/sect1&gt;</span>
+</span><span class='line'><span class="nt">&lt;/article&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>很好理解的文件，对吧。</p>
+
+<p>第1行，是来规定文件的编码格式。</p>
+
+<p><code>&lt;article&gt;</code>定义一个article的开始，在最后有相应的<code>&lt;/article&gt;</code>来关闭他。</p>
+
+<p><code>&lt;artheader&gt;</code>作为article的头，定义了文档的名称，以及作者，同样需要相应的<code>&lt;/article&gt;</code>。</p>
+
+<p><code>&lt;sect1&gt;</code>就是章节的划分了，在示例文件中我们会看到多个<code>&lt;sect1&gt;</code>，这些章节的序号会自动按照1、2、3这样的顺序生成。示例中的第一个section是一个插图，可以讲指定的图片插入到我们的文档中。<code>&lt;title&gt;</code>指出了该章节的标题；<code>&lt;graphic&gt;</code>元素中指出了插图的路径和名称，这里XML文件跟png文件在同一路径下。</p>
+
+<p>往下看，我们会发现<code>&lt;sect2&gt;</code>这样的元素，他是我们插入的子章节，他的页面效果是这样的。第一层的<code>&lt;sect1&gt;</code>，会被展现成 2. 这样子，可以认为是表示第二章。<code>&lt;sect2&gt;</code>则会被展现成 2.1 这样子的，表示是第二章第一小节。后面的<code>&lt;sect2&gt;</code>和<code>&lt;sect3&gt;</code>以此类推。17行中的<code>&lt;para&gt;</code>表示一个章节中普通的段落。</p>
+
+<p>在25行中，我们可以看到<code>&lt;itemizedlist&gt;</code>这个元素，他是一个列表。</p>
+
+<p>到这里，我们已经编辑完我们的XML文件了。然后我们就可以按照最开始提到的链接1中所描述的那样，用相应的工具把这个XML文件转换成pdf文件。<br/>
+这里分两步：<br/>
+1.  首先要把XML文件转换成fo文件，在命令行模式中，去刚才编辑好的XML文件所在路径，运行：<code>xsltproc -o ../output/fo/docbook5-demo.fo E:\DevRoot\docbook\config\docbook-xsl-ns-1.77.1\docbook_fo.xsl docbook5-demo.xml</code>  这里，-o 参数后面跟的是本次将要生成fo文件的路径和名称；E盘路径那个参数，表示生成fo文件时所要参考的格式文件；最后的参数，就是刚刚编辑好的XML文件.<br/>
+2.  然后我们会得到一个叫做docbook5-demo.fo的文件，再运行：<code>E:\DevRoot\docbook\tools\fop-1.0\fop.cmd -c E:\DevRoot\docbook\config\fop\fop.xconf -fo ../output/fo/docbook5_demo.fo -pdf ../output/pdf/docbook5_demo.pdf</code>  这里，第一个E盘路径表示我们此次要运行的命令，可以根据自己所设置的位置来调整；-c 跟的参数，表示此次转换时要是用的配置文件； -fo 就是刚才生成的fo文件路径； 最后-pdf表示此次要生成的pdf的路径和名称。</p>
+
+<p>运行完上面两步，我们就可以得到一个pdf文件了！</p>
+
+<p>最后，我们可以在本地自己搭建一个repository（git或者hg，随你自己喜欢），把编辑好的XML文件check in上去了。以后每次写完，可以运行上面两条命令来得到交付的pdf文件；编辑完的XML文件则完全纳入版本管理当中了，可以集中、方便地管理，查询以前的提交，两次之间的diff，都是方便得很～～</p>
+]]></content>
+  </entry>
   
 </feed>

@@ -1,15 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
+        <loc>http://r00e.github.io/blog/2013/09/21/rang-wen-dang-ban-ben-hua/</loc>
+        <lastmod>2013-10-03T14:12:07+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://r00e.github.io/robots.txt</loc>
         <lastmod>2013-09-21T20:20:53+08:00</lastmod>
     </url>
     <url>
+        <loc>http://r00e.github.io/rang-wen-dang-ban-ben-hua/</loc>
+        <lastmod>2013-09-21T20:41:01+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://r00e.github.io/</loc>
-        <lastmod>2013-09-21T20:20:53+08:00</lastmod>
+        <lastmod>2013-10-03T14:12:07+08:00</lastmod>
     </url>
     <url>
         <loc>http://r00e.github.io/blog/archives/</loc>
-        <lastmod>2013-09-21T20:20:53+08:00</lastmod>
+        <lastmod>2013-10-03T14:12:07+08:00</lastmod>
     </url>
 </urlset>
