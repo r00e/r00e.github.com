@@ -2,11 +2,11 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
-simple_search: http://google.com/search
+url: http://r00e.github.io
+title: r00e 
+subtitle: 如意如意 随我心意 
+author: r00e 
+simple_search: http://google.cn/search
 description:
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
@@ -70,7 +70,7 @@ github_skip_forks: true
 
 # Twitter
 twitter_user:
-twitter_tweet_button: true
+twitter_tweet_button: false
 
 # Google +1
 google_plus_one: false
